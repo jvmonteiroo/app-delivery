@@ -1,13 +1,18 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native';
+import { images } from './images';
 
 export default function App() {
   return (
     <View style={styles.container}>  
      <StatusBar style="auto" />
      <View style={styles.logo}>
-        <Text style={styles.logoText}>
-          Logo
+        <Image style={styles.logoText} source={images.logo} resizeMode='contain' resizeMethod='resize'/>
+        <Text style={styles.logoName}>
+          GoRestaurant
+        </Text>
+        <Text style={styles.logoSlogan}>
+          Comida italina, sim!
         </Text>
      </View>
       <View style={styles.boxText}>
@@ -20,6 +25,9 @@ export default function App() {
           <Text style={styles.textButton}>
             Entrar no retaurante
           </Text>
+          <View style={styles.imageBoxEntrar}>
+            <Image source={images.entrar} />
+          </View>
         </TouchableOpacity>
       </View>
     </View>
@@ -34,16 +42,12 @@ const styles = StyleSheet.create({
   },
   logo: {
     height: 300,
-    borderWidth: 1,
-    borderColor: "white",
     justifyContent: "center",
   },
   logoText: {
-    color: "white",
+    width: 50,
   },
   boxText:{
-    borderWidth:1,
-    borderColor:"white",
   },
   bigText: {
     fontSize: 70,
@@ -52,8 +56,6 @@ const styles = StyleSheet.create({
   
   },
   boxButton: {
-    borderWidth: 1,
-    borderColor:"white",
     height: 50,
     position: "absolute",
     width: "100%",
@@ -64,10 +66,33 @@ const styles = StyleSheet.create({
     backgroundColor:"#ffb84d",
     height: 48,
     borderRadius: 8,
-    justifyContent:"center",
+    justifyContent:"space-between",
     alignItems: "center",
+    flexDirection: "row",
   },
   textButton: {
-    color:"#7a1818"
-  }
+    color:"#7a1818",
+    flex: 1,
+    textAlign:"center",
+    fontWeight: "bold",
+    fontSize: 18,
+  },
+  imageBoxEntrar: {
+    backgroundColor: "#FFC46B",
+    height: "100%",
+    width: 50,
+    justifyContent: "center",
+    alignItems:"center",
+    borderTopRightRadius: 8,
+    borderBottomRightRadius:8,
+  },
+  logoName: {
+    fontSize: 32,
+    color: "white",
+    fontWeight:"bold",
+  },
+  logoSlogan: {
+    fontsize: 12,
+    color: "#FFB1B1"
+  },
 });
