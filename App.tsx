@@ -5,7 +5,7 @@ import { images } from './images';
 export default function App() {
   return (
     <View style={styles.container}>  
-     <StatusBar style="auto" />
+     <StatusBar style='auto' />
      <View style={styles.logo}>
         <Image style={styles.logoText} source={images.logo} resizeMode='contain' resizeMethod='resize'/>
         <Text style={styles.logoName}>
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
     fontWeight:"bold",
   },
   logoSlogan: {
-    fontsize: 12,
+    fontSize: 12,
     color: "#FFB1B1"
   },
 });
