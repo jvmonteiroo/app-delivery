@@ -3,5 +3,6 @@ export const images = {
     entrar:require("./src/images/entrar.png"),
     logo:require("./src/images/logo.png"),
     pizza:require("./src/images/pizza.png"),
-    group:require("./src/images/group.png")
+    group:require("./src/images/group.png"),
+    produto:require("./src/images/produto.png")
 }
