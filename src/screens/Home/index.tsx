@@ -19,12 +19,22 @@ export default function Home (){
             title: "Veggie",
             description: "Macarrão com pimentão, ervilha e ervas finas colhidas no imalaia",
             price: "29,90"
+        },
+        {
+            title: "Veggie",
+            description: "Macarrão com pimentão, ervilha e ervas finas colhidas no imalaia",
+            price: "29,90"
         }
     ]
 
     return (
        <View style={styles.container}>
-        <View style={styles.header}></View>
+        <View style={styles.header}>
+            <Image source={images.logo} resizeMode="contain"resizeMethod="resize" style={styles.logo}/>
+            <Text style={styles.logoText}>
+                GoRestaurant
+            </Text>
+        </View>
         <View style={styles.content}>
         <View style={styles.section}>
             <Text style={styles.sectionTitle}>Categorias</Text>
@@ -42,7 +52,7 @@ export default function Home (){
         </View>
         <View style={styles.section}>
             <Text style={styles.sectionTitle}>Pratos</Text>
-            <View style={styles.sectionContent}>
+            <ScrollView style={styles.sectionContent} >
             
             { products.map(item => (
                 <View style={styles.productItem}>
@@ -57,7 +67,7 @@ export default function Home (){
                 </View>
             ))}
 
-            </View>
+            </ScrollView>
         </View>
         </View>
        </View>
@@ -70,9 +80,23 @@ const styles = StyleSheet.create(
             flex: 1,
             backgroundColor:"white",
         },
+        logo: {
+            width: 48
+        },
+        logoText: {
+            flex:1,
+            fontSize:28,
+            fontWeight:"bold",
+            color: "white",
+        },
         header: {
             backgroundColor:"#c72828",
             height:150,
+            justifyContent:"space-between",
+            flexDirection:"row",
+            alignItems:"center",
+            paddingHorizontal: 15,
+            gap:5,
         },
         content: {
             paddingHorizontal:15,

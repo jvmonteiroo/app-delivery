@@ -1,7 +1,10 @@
 import { StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native';
 import { images } from '../../../images';
+import { useNavigation } from '@react-navigation/native';
 
 export default function Onboarding() {
+  const navigation = useNavigation<any>()
+
   return (
     <View style={styles.container}>  
      <View style={styles.logo}>
@@ -19,7 +22,7 @@ export default function Onboarding() {
           </Text>
       </View>
       <View style={styles.boxButton}>
-        <TouchableOpacity style={styles.buttonOpacity}>
+        <TouchableOpacity style={styles.buttonOpacity} onPress={() => navigation.navigate("Home")}>
           <Text style={styles.textButton}>
             Entrar no retaurante
           </Text>
