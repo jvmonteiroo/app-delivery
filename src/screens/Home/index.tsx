@@ -1,7 +1,3 @@
-import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native"
-import { StyleSheet } from "react-native"
-import { images } from "../../../images"
-import { useNavigation } from "@react-navigation/native"
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import TabProducts from "../Tabs/TabProducts"
 import TabProfile from "../Tabs/TabProfile"
