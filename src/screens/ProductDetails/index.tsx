@@ -5,24 +5,28 @@ import { images } from '../../../images';
 export default function ProductDetails (){
     return(
         <View style={styles.container}>
-            <View style={styles.parteDeCimaPorBaixo}>
+            <View style={styles.header}>
                 <Image source={images.Voltar}/>
                 <Text>
                     Prato - Massas
                 </Text>
                 <Image source={images.Favoritos}/>
             </View>
-            <View style={styles.parteDeCimaPorCima}>
-                <Image source={images.produto}/>
-                <Text>
+            <View style={styles.headerDetails}>
+                <View style={styles.headerDetailsBackground}>
+                    <Image source={images.produto} style={styles.image} resizeMethod="resize" resizeMode="cover"/>
+                </View>
+            <View style={styles.headerDetailsText}>
+                <Text style={styles.title}>
                     Ao Molho
                 </Text>
-                <Text>
+                <Text style={styles.details}>
                     Macarrão ao molho branco, fughi e cheiro verde das montanhas.
                 </Text>
-                <Text>
+                <Text style={styles.price}>
                     R$ 19,90
                 </Text>
+            </View>
                 <View style={styles.Adicionais}>
                     <Text>
                         Adicionais
@@ -48,19 +52,52 @@ export default function ProductDetails (){
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        borderWidth:10,
-        padding: 20,
+        backgroundColor: "#fff",
     },    
-    parteDeCimaPorBaixo: {
-        borderWidth:10,
+    header: {
         justifyContent: 'space-between',
         flexDirection: 'row',
-        height:200
+        height:200,
+        backgroundColor:'#c72828',
     },
-    parteDeCimaPorCima: {
-        borderWidth:1
+    headerDetails: {
+        marginHorizontal: "5%",
+        position:"absolute",
+        top: 150,
+        width: "90%"       
     },
     Adicionais: {
-        borderWidth:1
     },
+    headerDetailsBackground: {
+        backgroundColor:'#ffb84d',
+        alignItems: "center",
+        justifyContent: "flex-end",
+        height: 200,
+    },
+    headerDetailsText: {
+        backgroundColor: '#f0f0f5',
+        flexDirection: "column",
+        justifyContent: "space-between",
+        paddingVertical: 15,
+        paddingHorizontal: 22,
+        gap: 10,
+    },
+    title: {
+        fontWeight:"bold",
+        fontSize: 20,
+        color: "#3d3d4d"
+    },
+    details: {
+        color:"#3d3d4d",
+        fontSize: 15,
+    },
+    price: {
+        color:"#6c6c80",
+        fontSize:24,       
+    },
+    image: {
+        width: "80%",
+        height: 300,
+        marginBottom: -130,
+    }
 })
