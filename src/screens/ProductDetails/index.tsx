@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet, Image } from "react-native";
+import { Text, View, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { images } from '../../../images';
 
 
@@ -28,21 +28,89 @@ export default function ProductDetails (){
                 </Text>
             </View>
                 <View style={styles.Adicionais}>
-                    <Text>
+                    <Text style={styles.title}>
                         Adicionais
                     </Text>
-                    <Text>
-                        Bacon + -
-                    </Text>
-                    <Text>
-                        Limão siciliano
-                    </Text>
-                    <Text>
-                        Tomate
-                    </Text>
-                    <Text>
-                        Molho branco
-                    </Text>
+                    <View style={styles.caixaAdicionais}>
+                        <Text>
+                            Bacon
+                        </Text>
+                        <View style={styles.maisMenos}>
+                            <TouchableOpacity>
+                                <Text>
+                                    +
+                                </Text>                        
+                            </TouchableOpacity>
+                            <Text>
+                                0
+                            </Text>
+                            <TouchableOpacity>
+                                <Text>
+                                    -
+                                </Text>                        
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+                    <View style={styles.caixaAdicionais}>
+                        <Text>
+                            Limão siciliano
+                        </Text>
+                        <View style={styles.maisMenos}>
+                            <TouchableOpacity>
+                                <Text>
+                                    +
+                                </Text>                        
+                            </TouchableOpacity>
+                            <Text>
+                                0
+                            </Text>
+                            <TouchableOpacity>
+                                <Text>
+                                    -
+                                </Text>                        
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+                    <View style={styles.caixaAdicionais}>
+                        <Text>
+                            Tomate
+                        </Text>
+                        <View style={styles.maisMenos}>
+                            <TouchableOpacity>
+                                <Text>
+                                    +
+                                </Text>                        
+                            </TouchableOpacity>
+                            <Text>
+                                0
+                            </Text>
+                            <TouchableOpacity>
+                                <Text>
+                                    -
+                                </Text>                        
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+                    <View style={styles.caixaAdicionais}>
+                        <Text>
+                            Molho branco
+                        </Text>
+                        <View style={styles.maisMenos}>
+                            <TouchableOpacity>
+                                <Text>
+                                    +
+                                </Text>                        
+                            </TouchableOpacity>
+                            <Text>
+                                0
+                            </Text>
+                            <TouchableOpacity>
+                                <Text>
+                                    -
+                                </Text>                        
+                            </TouchableOpacity>
+                        </View>
+                    </View>
                 </View>
             </View>
         </View>
@@ -67,6 +135,21 @@ const styles = StyleSheet.create({
         width: "90%"       
     },
     Adicionais: {
+        top: 40,
+        
+    },
+    caixaAdicionais:{
+        backgroundColor:'#f0f0f5',
+        flexDirection: "row",
+        justifyContent: "space-between",
+        padding: 5,
+        borderRadius: 12,
+        width: "100%",
+        gap: 
+    },
+    maisMenos: {
+        flexDirection: "row",
+        justifyContent: "space-between",
     },
     headerDetailsBackground: {
         backgroundColor:'#ffb84d',
