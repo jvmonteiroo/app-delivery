@@ -113,6 +113,31 @@ export default function ProductDetails (){
                     </View>
                 </View>
             </View>
+            <View style={styles.totalCaixa}>
+                <Text style={styles.title}>
+                    Total do pedido
+                </Text>
+                <View style={styles.total}>
+                    <Text style={styles.price}>
+                        R$ 00,00
+                    </Text>
+                    <View style={styles.maisMenos}>
+                        <TouchableOpacity>
+                            <Text>
+                                -
+                            </Text>
+                        </TouchableOpacity>
+                        <Text>
+                            0
+                        </Text>
+                        <TouchableOpacity>
+                            <Text>
+                                +
+                            </Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+            </View>
         </View>
     )
 }
@@ -136,20 +161,25 @@ const styles = StyleSheet.create({
     },
     Adicionais: {
         top: 40,
-        
+        width: "100%",
+        flexDirection:"column",
+        justifyContent: "space-between",
     },
     caixaAdicionais:{
         backgroundColor:'#f0f0f5',
         flexDirection: "row",
         justifyContent: "space-between",
-        padding: 5,
+        padding: 15,
         borderRadius: 12,
         width: "100%",
-        gap: 
+        height:45,
+        marginVertical: 5,
     },
     maisMenos: {
         flexDirection: "row",
         justifyContent: "space-between",
+        width: 80,
+        backgroundColor:'#f0f0f5',
     },
     headerDetailsBackground: {
         backgroundColor:'#ffb84d',
@@ -182,5 +212,13 @@ const styles = StyleSheet.create({
         width: "80%",
         height: 300,
         marginBottom: -130,
-    }
+    },
+    totalCaixa: {
+        top:570,
+        marginHorizontal: 22,
+    },
+    total:{
+        justifyContent:"space-between",
+        flexDirection: "row",
+    },
 })
