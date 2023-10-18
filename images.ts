@@ -6,5 +6,6 @@ export const images = {
     group:require("./src/images/group.png"),
     produto:require("./src/images/produto.png"),
     Voltar:require("./src/images/Voltar.png"),
-    Favoritos:require("./src/images/Favoritos.png")
+    Favoritos:require("./src/images/Favoritos.png"),
+    check:require("./src/images/check.png")
 }
