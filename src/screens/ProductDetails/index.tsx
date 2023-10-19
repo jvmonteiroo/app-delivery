@@ -115,28 +115,30 @@ export default function ProductDetails (){
                             </View>
                         </View>
                     </View>
-                    <View style={styles.totalCaixa}>
-                        <Text style={styles.title}>
-                            Total do pedido
-                        </Text>
-                        <View style={styles.total}>
-                            <Text style={styles.price}>
-                                R$ 00,00
-                            </Text>
-                            <View style={styles.maisMenos}>
-                                <TouchableOpacity>
-                                    <Text>
-                                        -
-                                    </Text>
-                                </TouchableOpacity>
-                                <Text>
-                                    0
+                    <View >
+                        <View style={styles.totalCaixa}>
+                            <View style={styles.total}>
+                                <Text style={styles.title}>
+                                    Total do pedido
                                 </Text>
-                                <TouchableOpacity>
-                                    <Text>
-                                        +
-                                    </Text>
-                                </TouchableOpacity>
+                                <Text style={styles.price}>
+                                    R$ 00,00
+                                </Text>
+                            </View>
+                            <View style={styles.maisMenosTotal}>
+                                    <TouchableOpacity>
+                                        <Text>
+                                            -
+                                        </Text>
+                                    </TouchableOpacity>
+                                        <Text>
+                                          0
+                                        </Text>
+                                    <TouchableOpacity>
+                                        <Text>
+                                            +
+                                        </Text>
+                                    </TouchableOpacity>
                             </View>
                         </View>
                     </View>
@@ -230,11 +232,21 @@ const styles = StyleSheet.create({
         height: 300,
         marginBottom: -130,
     },
-    totalCaixa: {    },
-    total:{
+    totalCaixa: {
+        top: 2,
         justifyContent:"space-between",
         flexDirection: "row",
     },
+    total:{
+        gap: 5,
+    },
+    maisMenosTotal: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        backgroundColor:'#f0f0f5',
+        width: 100,
+        alignItems: "center",
+   },
     buttonBox: {
         backgroundColor:"#39b100",
         height: 50,
