@@ -1,8 +1,18 @@
 import { Text, View, StyleSheet, Image, TouchableOpacity, ScrollView } from "react-native";
 import { images } from '../../../images';
+import { useState } from "react";
+import ButtonGreen from "../../components/ButtonGreen";
 
 
 export default function ProductDetails (){
+        const [total, setTotal] = useState(0)
+        const somar = () => {
+            setTotal(old => old + 1 )
+        }
+        const subitrair = () => {
+            if (total == 0) return
+            setTotal(old => old - 1)
+        }
     return(
         <View style={styles.container}>
             <View style={styles.header}>
@@ -126,15 +136,15 @@ export default function ProductDetails (){
                                 </Text>
                             </View>
                             <View style={styles.maisMenosTotal}>
-                                    <TouchableOpacity>
+                                    <TouchableOpacity style={{flex: 1, alignItems: "center"}} onPress={()=> subitrair()}>
                                         <Text>
                                             -
                                         </Text>
                                     </TouchableOpacity>
-                                        <Text>
-                                          0
+                                        <Text style={{flex: 1, textAlign: "center"}}>
+                                          {total}
                                         </Text>
-                                    <TouchableOpacity>
+                                    <TouchableOpacity style={{flex:1, alignItems: "center"}} onPress={()=> somar()}>
                                         <Text>
                                             +
                                         </Text>
@@ -143,18 +153,7 @@ export default function ProductDetails (){
                         </View>
                     </View>
                 </ScrollView>
-                <View style={styles.buttonBox}>
-                    <TouchableOpacity style={styles.button}>
-                        <Text style={styles.buttonText}>
-                            Confirmar pedido
-                        </Text>
-                        <View style={styles.iconBox}>
-                            <Image source={images.check}>
-
-                            </Image>
-                        </View>
-                    </TouchableOpacity>
-                </View>
+                <ButtonGreen/>
             </View>
         </View>
     )
@@ -244,33 +243,8 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "space-between",
         backgroundColor:'#f0f0f5',
-        width: 100,
+        width: 120,
         alignItems: "center",
+        borderRadius: 5,
    },
-    buttonBox: {
-        backgroundColor:"#39b100",
-        height: 50,
-        borderRadius: 10,
-    },
-    button: {
-        flexDirection: "row",
-        justifyContent:"space-between",
-        alignItems: "center"
-    },
-    buttonText:{
-        flex:5,
-        fontSize: 16,
-        color: "white",
-        fontWeight: "bold",
-        textAlign: "center",
-    },
-    iconBox: {
-        flex:1,
-        backgroundColor: "#41c900",
-        height: 50,
-        justifyContent:"center",
-        alignItems: "center",
-        borderTopRightRadius: 10,
-        borderBottomRightRadius: 10,
-    }
 })
