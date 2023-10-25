@@ -1,32 +1,21 @@
-import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native"
+import { Image, ScrollView, Text, TouchableOpacity, View, Alert, ActivityIndicator } from "react-native"
 import { StyleSheet } from "react-native"
 import { images } from "../../../images"
 import { useNavigation } from "@react-navigation/native"
+import { useEffect, useState } from "react"
+import { products } from "../../Servidor/pratos"
 
 export default function TabProducts (){
     const navigation = useNavigation<any>()
-    const products: any[] = [
-        {
-            title: "Ao molho", 
-            description: "Macarrão ao molho branco fughi e cheiro verde das montanhas",
-            price: "19,90"
-        },
-        {
-            title: "Veggie",
-            description: "Macarrão com pimentão, ervilha e ervas finas colhidas no imalaia",
-            price: "29,90"
-        },
-        {
-            title: "Veggie",
-            description: "Macarrão com pimentão, ervilha e ervas finas colhidas no imalaia",
-            price: "29,90"
-        },
-        {
-            title: "Veggie",
-            description: "Macarrão com pimentão, ervilha e ervas finas colhidas no imalaia",
-            price: "29,90"
-        }
-    ]
+    const [pratos, setPratos] = useState<any[]>([])
+    const [loading, setLoading] = useState(false)
+    useEffect(()=> {
+        setLoading(true)
+        setTimeout(() => {
+            setPratos(products)
+            setLoading(false)
+        }, 5000)
+    },[])
 
     return (
        <View style={styles.container}>
@@ -55,7 +44,8 @@ export default function TabProducts (){
             <Text style={styles.sectionTitle}>Pratos</Text>
             <ScrollView style={styles.sectionContent} >
             
-            { products.map(item => (
+            <ActivityIndicator animating={loading} size={"large"} color={"red"}/>
+            { pratos.map(item => (
                 <TouchableOpacity style={styles.productItem} onPress={() => navigation.navigate("ProductDetails")}>
                     <View style={styles.productBackground}>
                         <Image source={images.produto} resizeMode="contain" resizeMethod="resize"/>
