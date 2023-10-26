@@ -2,9 +2,11 @@ import { Text, View, StyleSheet, Image, TouchableOpacity, ScrollView } from "rea
 import { images } from '../../../images';
 import { useState } from "react";
 import ButtonGreen from "../../components/ButtonGreen";
+import { useRoute } from "@react-navigation/native";
 
 
 export default function ProductDetails (){
+        const route = useRoute<any>()
         const [total, setTotal] = useState(0)
         const somar = () => {
             setTotal(old => old + 1 )
@@ -29,13 +31,13 @@ export default function ProductDetails (){
                     </View>
                     <View style={styles.headerDetailsText}>
                         <Text style={styles.title}>
-                            Ao Molho
+                            {route.params?.product.title}
                         </Text>
                         <Text style={styles.details}>
-                            Macarrão ao molho branco, fughi e cheiro verde das montanhas.
+                            {route.params?.product.description}
                         </Text>
                         <Text style={styles.price}>
-                            R$ 19,90
+                           R$ {route.params?.product.price}
                         </Text>
                     </View>
                 </View>

@@ -1,22 +1,32 @@
 import { Image, ScrollView, Text, TouchableOpacity, View, Alert, ActivityIndicator } from "react-native"
 import { StyleSheet } from "react-native"
 import { images } from "../../../images"
-import { useNavigation } from "@react-navigation/native"
-import { useEffect, useState } from "react"
+import { useFocusEffect, useNavigation } from "@react-navigation/native"
+import { useCallback, useEffect, useState } from "react"
 import { products } from "../../Servidor/pratos"
 
 export default function TabProducts (){
     const navigation = useNavigation<any>()
     const [pratos, setPratos] = useState<any[]>([])
     const [loading, setLoading] = useState(false)
-    useEffect(()=> {
-        setLoading(true)
-        setTimeout(() => {
-            setPratos(products)
-            setLoading(false)
-        }, 5000)
-    },[])
+    // useEffect(()=> {
+    //     setLoading(true)
+    //     setTimeout(() => {
+    //         setPratos(products)
+    //         setLoading(false)
+    //     }, 5000)
+    // },[])
 
+    useFocusEffect(
+        useCallback(() => {
+            setLoading(true)
+            setTimeout(()=> {
+                    setPratos(products);
+                    setLoading(false)
+            }, 5000);
+        },[])
+    )
+    
     return (
        <View style={styles.container}>
         <View style={styles.header}>
@@ -46,7 +56,7 @@ export default function TabProducts (){
             
             <ActivityIndicator animating={loading} size={"large"} color={"red"}/>
             { pratos.map(item => (
-                <TouchableOpacity style={styles.productItem} onPress={() => navigation.navigate("ProductDetails")}>
+                <TouchableOpacity style={styles.productItem} onPress={() => navigation.navigate("ProductDetails",{product: item})}>
                     <View style={styles.productBackground}>
                         <Image source={images.produto} resizeMode="contain" resizeMethod="resize"/>
                     </View>
